@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="Cart">
+ 	<select id="searchgoods" parameterType="string" resultType="cartdto">
+        SELECT c.CART_NUM, c.USER_ID, p.PRODUCT_ID, p.BRAND, p.PRODUCT_NAME, p.PRICE_AMOUNT, p.NORMAL_PRICE, 
+        p.SALE_RATE, p.IMAGE_URL, p.CATEGORY, p.SUBCATEGORY
+		FROM CART c
+		LEFT OUTER JOIN PRODUCTS p ON c.PRODUCT_ID = p.PRODUCT_ID 
+		WHERE USER_ID = #{user_id}
+    </select>
+    <select id="searchbylist" resultType="goodsdto">
+    	SELECT * FROM PRODUCTS WHERE PRODUCT_ID IN
+    	<foreach item="itemIdsArray" collection="array" open="(" separator="," close=")">
+        	#{itemIdsArray}
+    	</foreach>
+    </select>
+    <delete id="deleteitem">
+    	DELETE FROM CART WHERE PRODUCT_ID IN
+    	<foreach item="itemIdsArray" collection="array" open="(" separator="," close=")">
+        	#{itemIdsArray}
+    	</foreach>
+    </delete>
+  </mapper>

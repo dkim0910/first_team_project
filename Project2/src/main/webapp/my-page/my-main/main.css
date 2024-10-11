@@ -1,0 +1,506 @@
+/* main.css */
+@charset "UTF-8";
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+	font-family: "GmarketSansMedium";
+}
+
+/* 전체 페이지 디자인 */
+body {
+  display: flex;
+}
+
+/* 전체 페이지 크기 */
+.con {
+  display: flex;
+  width: 1600px;
+}
+
+/* 헤더 / 푸터 빼고 전체 페이지 */
+.container {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: large;
+  display: flex;
+  width: 100%;
+  float: left; /* 박스를 왼쪽에 배치 */
+  clear: both; /* 레이아웃 중첩 방지 */
+}
+
+/* 사이드 바 */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 16%;
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* 사이드바 택스트 "마이페이지" 글꼴 크기 등 */
+.sidebar-title {
+  font-size: 270%;
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 17.5px;
+}
+.sidebar-title:hover {
+  cursor: pointer;
+}
+
+/* 사이드바 카테고리 텍스트들 */
+.sidebar-options {
+  transition: color 0.1s, font-weight 0.1s;
+  font-weight: normal;
+}
+.sidebar-options:hover {
+  color: #353535;
+  font-weight: bolder;
+}
+.sidebar ul {
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+}
+.sidebar a.logout {
+  margin-top: auto;
+  color: #ff0000;
+  text-decoration: none;
+}
+
+/* 그냥 볼드체 만드는 css */
+.bold {
+  color: #000000;
+  font-weight: bolder;
+}
+
+/* 메인페이지 박스 '어서오세요' */
+.main-hello {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.main-hello-section {
+  display: none; /* 기본적으로 모든 섹션 숨기기 */
+}
+.main-hello-section.active {
+  display: block; /* active 클래스가 있는 섹션만 보이게 함 */
+}
+
+/* 어서오세요 박스 안쪽 */
+.hello {
+  display: flex;
+  justify-content: space-between; /* 양쪽 끝으로 배치 */
+  align-items: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 5px; /* 둥근 모서리 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.hello-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* 요소를 상단에 정렬 */
+  width: 100%;
+}
+
+/* 어서오세요 왼쪽으로 */
+.left {
+  font-size: 37px;
+}
+
+/* 어서오세요 남어지 오른쪽으로 */
+.right-container {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column; /* 세로 방향으로 정렬 */
+  align-items: flex-end; /* 오른쪽 정렬 */
+}
+.right {
+  font-size: 20px;
+  margin: 5px 0;
+  text-align: right;
+}
+
+/* 메인 마이페이지 폰트 */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+.main-box {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.line {
+  border: none;
+  height: 1px;
+  background-color: black;
+  margin: 13px 0;
+}
+
+/* 나의 정보 폰트 및 디자인 */
+#myInformation {
+  margin-bottom: 30px;
+}
+
+.profile-container {
+  max-width: 100%;
+  margin: auto;
+  background: white;
+  border-radius: 8px;
+  padding: 10px 30px 0px 30px;
+  margin: 0px 0px 0px 100px;
+  font-size: 19px;
+}
+.profile-container label {
+	margin: 5px 0 5px 0;
+}
+.profile-info {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* '정보수정하기' -> '수정하기' 버튼의 폰트랑 디자인 */
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 20px 0;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+/* 정보수정에서 주소 변경 버튼 */
+.sheet-address-title-button{
+    border: 1.5px solid #e0e0e0;
+    box-sizing: border-box;
+    color: black;
+    border-radius: 4px;
+    margin-left: 20px;
+    margin-right: 40%;
+    padding: 3px 6px;
+    font-size: 19px;
+    font-weight: 500; 
+}
+
+/* 멤버십 폰트 및 디자인 */
+/* 현재 포인트 섹션 스타일 */
+.current-points-section {
+  text-align: center;
+  padding: 30px;
+  background-color: #fff;
+  margin-bottom: 30px;
+}
+.current-points-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.membership-bar-container {
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  width: 50%;
+  margin: 0 auto;
+  height: 30px;
+  overflow: hidden;
+}
+.membership-bar {
+  background-color: black;
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+.current-points-section p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* 멤버십 레벨 섹션 스타일 */
+.membership-levels {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px;
+  background-color: #fff;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.membership-level {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 30%;
+}
+.membership-level h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+.membership-level p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+.membership-level ul {
+  list-style: none;
+  padding: 0;
+}
+.membership-level ul li {
+  background-color: #f4f4f4;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .membership-levels {
+    flex-direction: column;
+  }
+
+  .membership-level {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+}
+
+/* 헤더 컨테이너 */
+.header-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 40px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.header {
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Distribute space between elements */
+  padding: 20px; /* Vertical and horizontal padding */
+  background-color: black; /* Background color */
+  color: #ffffff; /* Text color */
+  border-bottom: 10px solid; /* Bottom border */
+  position: relative; /* For absolute positioned elements */
+}
+.header h1 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 2.5rem; /* Font size for h1 */
+  flex-grow: 1; /* Takes remaining space to center */
+  text-align: center; /* Center text */
+}
+.header p {
+  display: none; /* Existing style remains */
+}
+
+/* 장바구니 버튼 */
+.cart-button {
+  margin-left: auto; /* Pushes the cart button to the far right */
+}
+
+/* 모든 버튼 기본 디자인 */
+.all-button {
+  background-color: black;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* 마이페이지 배송 현환 디자인 */
+.tracking-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tracking-header {
+  text-align: center;
+}
+
+.tracking-box {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+#tracking-form {
+  display: flex;
+  gap: 10px;
+}
+
+#order-number {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.tracking-info {
+  margin-top: 20px;
+}
+
+.progress-container {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  height: 20px;
+  position: relative;
+  margin: 20px 0;
+}
+
+.progress-bar {
+  background-color: black;
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+/* 이벤트 페이지 디자인 */
+
+/* 스크롤 가능한 이벤트 카드 섹션 */
+.events-section-wrapper {
+  max-height: 690px;
+  /* 세로 스크롤 활성화 */
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.events-section {
+  display: flex;
+  /* 세로로 정렬 */
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 이벤트 카드 스타일 */
+.event-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* 전체 너비를 차지 */
+  width: 100%;
+  /* 카드 최대 너비 */
+  max-width: 500px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-card img {
+  width: 100%;
+  /* 이미지 높이 */
+  height: 150px;
+  object-fit: cover;
+}
+
+.event-card-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.event-card-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.event-card-content p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.event-card-content a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+/* 스크롤바 스타일 (선택 사항, 크롬 기준) */
+.events-section-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.events-section-wrapper::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 10px;
+}
+
+.events-section-wrapper::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+}
+
+/* 회원 탈퇴 */
+/* 모달 스타일 */
+#modal {
+  display: none;
+  /* 기본적으로 숨김 */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+#modalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* 별점 별 색 */
+/* 왜 여기는 적용이 안되냐? */
+.rating {
+    color: gold; /* 별색 */
+    font-size: 1.5em; /* 별 크기 */
+}
+
+.star {
+    margin-right: 2px; /* 별 사이의 간격 */
+    color: inherit; /* 부모의 색상으로 상속 */
+}
+.review-text {
+    margin-top: 5px; /* 별과 후기에 간격 추가 */
+}
+

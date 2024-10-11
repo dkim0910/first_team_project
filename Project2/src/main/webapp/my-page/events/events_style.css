@@ -1,0 +1,117 @@
+@charset "UTF-8";
+@font-face {
+	font-family: 'GmarketSansMedium';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	font-family: 'GmarketSansMedium';
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.container {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 0 40px 20px;
+	background-color: #fff;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	padding: 20px;
+	background-color: black;
+	color: #ffffff;
+	border-bottom: 2px solid #ff4d4d;
+	position: relative;
+}
+
+.content {
+	flex: 1;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 20px;
+}
+
+.card {
+	background-color: #f9f9f9;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	width: 300px;
+	margin: 20px;
+	padding: 20px 20px 0px 20px;
+	text-align: center;
+	overflow: hidden; /* 자식 요소가 부모 요소를 넘지 않도록 설정 */
+	transition: transform 0.3s ease; /* 카드 확대 전환 효과 */
+}
+
+.card:hover {
+	transform: scale(1.05); /* 마우스 오버 시 카드 전체를 5% 확대 */
+}
+
+.card img {
+	width: 100%;
+	border-radius: 8px;
+}
+
+.card h3 {
+	margin: 10px 0;
+	font-size: 18px;
+	color: #333;
+}
+
+.card p {
+	margin: 5px 0;
+	color: #666;
+	font-size: 14px;
+}
+
+.card .colorred {
+	color: red; /* 빨간색 폰트 설정 */
+}
+
+.footer {
+	text-align: center;
+	padding: 20px;
+	background-color: black;
+	color: #999999;
+	border-top: 2px solid #ff4d4d;
+}
+
+.footer p {
+	margin: 5px 0;
+}
+
+.all-button {
+	background-color: black;
+	color: #ffffff;
+	padding: 10px 20px;
+	border-radius: 20px;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+/* 할인 퍼센트에 빨간색 */
+a {
+	text-decoration: none; /* 밑줄 제거 */
+	color: inherit; /* 부모 요소의 색상 상속 */
+}

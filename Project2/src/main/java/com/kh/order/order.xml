@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Order">
+	<select id="getProducts" parameterType="String"
+		resultType="mydto">
+		SELECT * FROM PRODUCTS WHERE product_id = #{product_id}
+	</select>
+	<insert id="insertOrderedList" parameterType="hashmap">
+		INSERT INTO ORDERED VALUES (ordered_seq.nextval, #{user_id}, #{product_id}, sysdate, null, null)
+	</insert>
+	<select id="carttoorder" parameterType="string"
+		resultType="cartdto">
+		SELECT * FROM CART WHERE USER_ID = #{user_id}
+	</select>
+	<insert id="insertToOrdered" parameterType="map">
+		INSERT INTO ORDERED VALUES (ordered_seq.nextval, #{user_id}, #{itemID}, sysdate, null, null)
+	</insert>
+	<delete id="deletecart">
+		DELETE FROM CART WHERE PRODUCT_ID IN
+		<foreach item="itemIdsArray" collection="array" open="(" separator="," close=")">
+        	#{itemIdsArray}
+    	</foreach>
+	</delete>
+</mapper>
