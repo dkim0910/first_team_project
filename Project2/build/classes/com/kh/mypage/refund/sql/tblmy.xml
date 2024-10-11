@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MyMapper">
+	<!-- 전체 DB 조회후 productList.jsp에서 표시 -->
+	<select id="getAllProducts" resultType="mydto">
+		SELECT * FROM Products
+	</select>
+
+	<!-- 아직 DAO 랑 Action에 로직 추가 안했음 (유저 아이디도 가지고 올 수 있게 만들기) -->
+	<select id="getRefunds" parameterType="string"
+		resultType="mydto">
+		SELECT
+		o.ORDERED_NUM,
+		o.USER_ID,
+		o.PRODUCT_ID,
+		o.ordered_date,
+		o.refunded_date,
+		o.refund_status,
+		p.Brand,
+		p.Product_name,
+		p.Price_amount,
+		p.Image_url
+		FROM
+		Ordered o
+		JOIN
+		Products p ON o.PRODUCT_ID
+		= p.PRODUCT_ID
+		WHERE
+		o.USER_ID = #{userid}
+		ORDER BY
+		o.ORDERED_NUM DESC,
+		o.ordered_date DESC
+	</select>
+
+	<!-- 주문 내역 -->
+	<select id="getOrdered" parameterType="string"
+		resultType="mydto">
+		SELECT
+		o.ORDERED_NUM,
+		o.USER_ID,
+		o.PRODUCT_ID,
+		o.ordered_date,
+		o.refunded_date,
+		o.refund_status,
+		p.Brand,
+		p.Product_name,
+		p.Price_amount,
+		p.Image_url
+		FROM
+		Ordered o
+		JOIN
+		Products p ON o.PRODUCT_ID
+		= p.PRODUCT_ID
+		WHERE
+		o.USER_ID = #{userid}
+		ORDER BY
+		o.ORDERED_NUM DESC,
+		o.ordered_date DESC
+	</select>
+
+	<!-- 회원 삭제 -->
+	<!-- Ordered 테이블에서 USER_ID가 #{userid}인 데이터 삭제 -->
+	<delete id="deleteFromOrdered">
+		DELETE FROM Ordered WHERE USER_ID = #{userid}
+	</delete>
+
+	<!-- Cart 테이블에서 USER_ID가 #{userid}인 데이터 삭제 -->
+	<delete id="deleteFromCart">
+		DELETE FROM Cart WHERE USER_ID = #{userid}
+	</delete>
+
+	<!-- Users 테이블에서 USER_ID가 #{userid}인 데이터 삭제 -->
+	<delete id="deleteFromUsers">
+		DELETE FROM Users WHERE USER_ID = #{userid}
+	</delete>
+
+	<!-- 환불하면 주문 내역 업데이트 제품 번호를 환불 완료 로 바꿈 () -->
+	<update id="finishedRefund" parameterType="string">
+		UPDATE
+		ORDERED
+		SET
+		refund_status = '환불 날짜',
+		refunded_date = SYSDATE
+		WHERE
+		USER_ID =
+		#{userid} AND ORDERED_NUM = #{ordernum}
+	</update>
+
+	<!-- 이벤트 가을 세일 할인 중이고 아웃터들만 가지고옴 -->
+	<select id="selectOuter" resultType="mydto">
+		SELECT * FROM PRODUCTS p
+		WHERE SALE_RATE != '0'
+		AND CATEGORY = '아우터'
+	</select>
+
+	<!-- 이벤트 3만원 이하의 제품들만 가지고옴 -->
+	<select id="underthree" resultType="mydto">
+		SELECT * FROM PRODUCTS p
+		WHERE PRICE_AMOUNT BETWEEN 10 AND 30000
+		AND p.CATEGORY IS NOT NULL
+		AND p.CATEGORY NOT IN ('키즈', '디지털/라이프')
+		AND IMAGE_URL != 'https://image.msscdn.net/mfile_s01/fb/share_musinsa.png' 
+	</select>
+
+</mapper>
