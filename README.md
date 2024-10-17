@@ -1,5 +1,5 @@
 # JSP_Project
-## JSP project 3조
+## JSP project 3조 "쇼핑하조"
   
 ## 기획
 - 패션 쇼핑몰 웹 사이트
