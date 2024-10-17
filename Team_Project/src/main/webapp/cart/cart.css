@@ -1,0 +1,236 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'GmarketSansMedium';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	font-family: 'GmarketSansMedium';
+}
+
+html>body, button {
+	font-family: 'GmarketSansMedium';
+	text-underline-position: under;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0; /* Remove default body margin */
+    font-size: large;
+	
+    font-size: 16px;
+}
+
+html, body{
+    width: 1260px;
+    font-size: 16px;
+    line-height: inherit;
+    justify-content: center;
+    margin: auto;
+}
+
+
+.container {
+    max-width: 1600px;
+    box-sizing: border-box; /* width + padding <= max-width */
+    margin: 0 auto; 		/* Center the container */
+    padding: 0px 40px 20px; /* Top and bottom padding, with side padding */
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin: 0; 			/* Remove margin from h1 */
+    padding: 10px 0; 	/* Add padding if needed for spacing */
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+/* 이미지 크기 변경 */
+.product-image {
+    width: 300px; 		/* Smaller width */
+    height: 300px; 		/* Smaller height */
+    object-fit: cover; 	/* Maintain aspect ratio */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+th, td {
+    padding: 10px; 
+    text-align: center; 
+    border-bottom: 1px solid #ddd; 
+}
+
+th {
+    background-color: #f0f4f8; /* 헤더 셀 배경색 설정 */
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: black;
+    color: #999999;
+    border-top: 2px solid #ff4d4d;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+
+.button-back-page {
+    background: none; 			/* 배경색 제거 */
+    border: none; 				/* 테두리 제거 */
+    cursor: pointer; 			/* 포인터 커서 */
+    margin-right: 10px; 		/* h1과의 간격 */
+    font-size: 2.5rem; 			/* h1과 동일한 크기로 설정 */
+    color: #ffffff; 			/* 텍스트 색상 */
+    display: flex; 				/* flexbox로 중앙 정렬 */
+    align-items: center; 		/* 세로 중앙 정렬 */
+    justify-content: center; 	/* 가로 중앙 정렬 */
+    padding: 0; 				/* 기본 패딩 제거 */
+    line-height: 1; 			/* 줄 높이 설정 */
+  	text-decoration: none; 		/* 밑줄 제거 */
+}
+
+.header {
+    display: flex; 						/* flexbox 레이아웃 적용 */
+    align-items: center; 				/* 세로 중앙 정렬 */
+    padding: 20px; 						/* 상하좌우 여백 */
+    background-color: black; 			/* 배경색 */
+    color: #ffffff; 					/* 텍스트 색상 */
+    border-bottom: 2px solid #ff4d4d; /* 하단 경계선 */
+    position: relative; 				/* 절대 위치 요소를 포함하기 위해 설정 */
+    padding-right: 130px; 				/* 오른쪽 패딩 */
+}
+    
+/* 기본 스타일링 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.Title{
+	flex-grow: 1; 
+	text-align: center;
+}
+
+.main{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	min-height: 540px;
+}
+.main-top{
+	display: flex;
+    justify-content: space-between;
+    align-items: center; /* 세로 중앙 정렬 */
+    margin-left: 35px 
+}
+.keepshoping{
+	border-radius: 5px;
+	right: 0;
+	background-color: black;
+	margin: 10px;
+}
+.cart {
+    padding: 20px;
+}
+
+.cart-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.cart-item {
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-details {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* 구매하기 버튼 스타일 */
+.purchase-button {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.purchase-button:hover {
+    background-color: rgb(79, 79, 79);
+    
+}
+
+/* 삭제하기 버튼 스타일 */
+.delete-selected{
+	border-radius: 5px;
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
+}

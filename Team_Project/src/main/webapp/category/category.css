@@ -1,0 +1,235 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'GmarketSansMedium';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+* {
+	font-family: 'GmarketSansMedium';
+}
+html>body {
+	font-family: 'GmarketSansMedium';
+	text-underline-position: under;
+}
+
+
+/* 페이지 기본 스타일 */
+:root{
+    --site-width: 1600px;
+    --top-height:80px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#commonLayoutContainer {
+    max-width: var(--site-width); /* 원하는 최대 너비로 설정 */
+    margin: 0 auto;    /* 가로축 중앙 정렬 */
+    border-right: 2px solid #f5f5f5 ;
+}
+
+
+/* 상단 검색바 */
+#commonLayoutHeader {
+    background-color: #ffffff;
+    margin-bottom: 0;   /* header 하단 마진 제거 */
+    height: 100px;
+    max-height: var(--top-height);
+}
+
+.top-search-bar {
+    position: fixed;   /* position: fixed를 사용하면 해당 요소는 상위 요소의 제약(max-width)을 받지 않고 뷰포트(브라우저 창 전체)를 기준으로 배치됨.  */
+    display: flex;
+    box-sizing: border-box;
+    max-width: var(--site-width);
+    width: 100%;
+    max-height: 80px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+#search {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#search-button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search:hover {
+    background-color: #0056b3;
+}
+/* 상단 좌측 메뉴 */
+.back-button{
+	position: fixed;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    max-height: var(--top-height);
+    justify-content: center;    /* 가로 중앙 정렬 */
+    align-items: center;        /* 세로 중앙 정렬 */
+}
+
+/* 상단 우측 메뉴 */
+.top-menu {
+    position: fixed;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    left: 50%;
+    transform: translateX(calc(-50% + 660px));
+    max-height: var(--top-height);
+    justify-content: center;    /* 가로 중앙 정렬 */
+    align-items: center;        /* 세로 중앙 정렬 */
+}
+
+.menu-button {
+    flex-direction: column; 	/* 세로 방향으로 정렬 */
+	align-items: center; 		/* 가로 중앙 정렬 */
+    color: #000;
+    margin-right: 30px;
+    text-decoration: none;  	/* 링크 밑줄 제거 */
+}
+
+.menu-button svg {
+    margin-bottom: 5px;
+}
+
+.menu-button img{
+    width: 50px;
+    height: 50px;
+}
+
+/* 메인 콘텐츠 */
+#commonLayoutContents {
+    display: flex;
+    margin-left: 110px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 좌측 카테고리 */
+.left-goods-category {
+    position: fixed;
+    top: 80px;
+    height: calc(100vh - 80px);
+    width: 130px;
+    background-color: #f5f5f5;
+    flex-shrink: 0;                /* 좌측 카테고리가 줄어들지 않도록 설정 */
+}
+
+.left-goods-category ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+}
+
+.left-goods-category li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: larger;
+}
+
+.left-goods-category li:hover {
+    background-color: #ffffff;
+}
+
+.left-goods-category li.active {
+    background-color: white; /* 활성화된 항목의 색상 */
+    color: black;
+}
+
+
+/* 우측 상품 카테고리 */
+.right-goods-category {
+    margin: 0 auto;                 /* 좌우 자동으로 균등하게 설정 */
+    width: calc(var(--site-width) - 120px);
+    margin-left: 140px;             /* 좌측 카테고리와의 간격을 설정 */
+    padding: 20px;
+    flex-grow: 1;                   /* 남은 공간을 차지하도록 설정 */
+}
+
+.goods-category {
+    margin-bottom: 170px;
+    margin-top: 50px;
+    height: 450px;
+}
+
+.goods-category-index {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.goods-category-real {
+    padding: 10px;
+	display: flex; 					/* Flexbox로 자식 요소들을 가로로 배치 */
+	align-items: center; 			/* 아이템들이 세로로 가운데에 정렬되도록 설정 */
+	justify-content: space-around; 	/* 버튼 간의 간격을 균등하게 분배 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.goods{
+    display: flex;
+    flex-direction: column; 	/* 세로 방향으로 정렬 */
+	align-items: center; 		/* 가로 중앙 정렬 */
+	text-decoration: none; 		/* 링크에서 밑줄 제거 */
+    color: #000;
+    transition: background-color 0.3s;
+}
+
+.goods img{
+    width: 150px;
+    height: 150px;
+}
+
+/* 상품 설명 상자 기본 스타일 */
+.product-description {
+    display: none; /* 기본적으로 숨김 */
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 150px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* 하단 */
+#commonLayoutFooter {
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: #999999;
+}
+
+#commonLayoutFooter p {
+    margin: 5px 0;
+}

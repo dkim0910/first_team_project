@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+   <typeAliases>
+      <typeAlias type="com.kh.login.UserDTO" alias="userdto"/>
+      <typeAlias type="com.kh.category.GoodsDTO" alias="goodsdto"/>
+      <typeAlias type="com.kh.cart.CartDTO" alias="cartdto"/>
+      <typeAlias type="com.kh.mypage.refund.Beans_DAO_DTO.MyDTO" alias="mydto"/>
+      <typeAlias type="com.kh.app.board.dao.BoardDTO" alias="boarddto"/>
+      <typeAlias type="com.kh.app.board.dao.ReplyDTO" alias="replydto"/>
+   </typeAliases>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="pj"/>
+        <property name="password" value="pj"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+     <mapper resource="com/kh/login/tblmember.xml"/>
+     <mapper resource="com/kh/category/goods.xml"/>
+     <mapper resource="com/kh/mypage/sql/member.xml"/>
+     <mapper resource="com/kh/order/order.xml"/>
+     <mapper resource="com/kh/cart/cart.xml"/>
+     <mapper resource="com/kh/web/sql/board.xml" />
+  </mappers>
+  
+</configuration> 
+
+
+
+
+
+
+
+
