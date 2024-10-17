@@ -1,0 +1,65 @@
+-- DB 만들기
+-- Table: Users
+CREATE TABLE Users (
+    USER_ID       VARCHAR2(300) PRIMARY KEY,
+    user_pw       VARCHAR2(300),
+    user_name     VARCHAR2(300),
+    user_phone    VARCHAR2(300), -- 숫자로 바꿀까?
+    user_gender   VARCHAR2(300),
+    user_address  VARCHAR2(300)
+);
+
+-- Table: Products
+CREATE TABLE Products (
+    PRODUCT_ID       VARCHAR2(300) PRIMARY KEY,
+    Brand            VARCHAR2(300),
+    Product_name     VARCHAR2(300),
+    Price_amount     NUMBER, -- 숫자임
+    normal_price     NUMBER, -- 숫자임
+    sale_rate        NUMBER, -- 숫자임
+    Image_url        VARCHAR2(300),
+    CATEGORY         VARCHAR2(200),
+    subCategory      VARCHAR2(200)  
+);
+
+-- Table: Cart
+CREATE TABLE Cart (
+    CART_NUM    VARCHAR2(300) PRIMARY KEY, -- 장바구니 번호
+    USER_ID     VARCHAR2(300),
+    PRODUCT_ID  VARCHAR2(300),
+    FOREIGN KEY (USER_ID) REFERENCES Users(USER_ID), -- USER_ID 외래 키 추가
+    FOREIGN KEY (PRODUCT_ID) REFERENCES Products(PRODUCT_ID)
+);
+
+-- Table: Ordered
+CREATE TABLE Ordered (
+    ORDERED_NUM   VARCHAR2(300) PRIMARY KEY,
+    USER_ID       VARCHAR2(300),
+    PRODUCT_ID    VARCHAR2(300), -- PRODUCT_ID 외래 키 추가
+    ordered_date   DATE,
+    refunded_date  DATE,
+    refund_status varchar2(300),
+    FOREIGN KEY (USER_ID) REFERENCES Users(USER_ID), -- USER_ID 외래 키 추가
+    FOREIGN KEY (PRODUCT_ID) REFERENCES Products(PRODUCT_ID) -- 외래 키 설정
+);
+
+CREATE SEQUENCE ordered_seq
+START WITH 1 -- 시퀀스가 시작할 값
+INCREMENT BY 1 -- 시퀀스 값이 증가할 크기
+MINVALUE 1 -- 최소값 (선택사항)
+MAXVALUE 99999999 -- 최대값 (선택사항)
+NOCYCLE -- 최대값에 도달하면 다시 최소값으로 돌아가지 않도록 설정 (CYCLE 사용 가능)
+NOCACHE;
+
+CREATE SEQUENCE cart_seq
+START WITH 1
+INCREMENT BY 1 -- 시퀀스 값이 증가할 크기
+MINVALUE 1 -- 최소값 (선택사항)
+MAXVALUE 99999999 -- 최대값 (선택사항)
+NOCYCLE -- 최대값에 도달하면 다시 최소값으로 돌아가지 않도록 설정 (CYCLE 사용 가능)
+NOCACHE;
+
+SELECT * FROM CART c ;
+SELECT * FROM ORDERED o ;
+SELECT * FROM PRODUCTS p ;
+SELECT * FROM USERS u ;
